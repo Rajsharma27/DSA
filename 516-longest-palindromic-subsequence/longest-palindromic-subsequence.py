@@ -1,10 +1,9 @@
-import numpy as np
 class Solution(object):
     def lcs(self,s1,s2):
         n = len(s1)
         m = len(s2)
 
-        dp = np.zeros((n + 1, m + 1), dtype=int)
+        dp = [[0] * (m + 1) for _ in range(n + 1)]
         for i in range(n+1):
             dp[i][0] = 0
         for j in range(m+1):
