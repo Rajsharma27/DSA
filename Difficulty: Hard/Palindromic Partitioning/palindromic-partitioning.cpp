@@ -1,0 +1,34 @@
+class Solution {
+  public:
+    bool check(string &s, int i, int j){
+        while(i < j){
+            if(s[i] != s[j]) return false;
+            i++;
+            j--;
+        }
+        return true;
+    }
+    int solve(string &s, int i, int j, vector<vector<int>> &dp){
+        if(i >= j) return 0;
+
+        if(check(s,i,j)) return 0;
+
+        if(dp[i][j] != -1) return dp[i][j];
+
+        int mn = INT_MAX;
+
+        for(int k=i;k<j;k++){
+            if(check(s, i, k)){                         
+                int temp = solve (s, k+1, j, dp) + 1;
+                mn = min (mn, temp);
+            }
+        }
+        return dp[i][j] = mn;
+    }
+    int palPartition(string &s) {
+        // code here
+        int n = s.size();
+        vector<vector<int>> dp(n,vector<int>(n,-1));
+        return solve(s,0,n-1,dp);
+    }
+};
