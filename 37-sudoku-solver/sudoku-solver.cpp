@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool solved = false;
-
     bool safe(vector<vector<char>>& board, int row, int col, char num) {
 
         for(int i = 0; i < 9; i++) {
@@ -24,7 +23,6 @@ public:
         }
         return true;
     }
-
     void solve(vector<vector<char>>& board) {
         if(solved) return;
     
@@ -45,7 +43,6 @@ public:
         }
         solved = true;
     }
-
     void solveSudoku(vector<vector<char>>& board) {
         solve(board);
     }
