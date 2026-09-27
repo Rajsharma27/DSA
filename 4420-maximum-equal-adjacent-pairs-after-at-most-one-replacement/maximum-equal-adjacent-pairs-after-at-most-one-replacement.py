@@ -1,13 +1,11 @@
 class Solution:
     def maxEqualAdjacentPairs(self, nums: list[int]) -> int:
         freq = defaultdict(int)
-        eqFreq = defaultdict(int)
         totalEq = 0
 
         for i in range(len(nums)-1):
             x,y = nums[i],nums[i+1]
             if x==y:
-                eqFreq[(x,x)]+=1
                 totalEq+=1
                 continue
             if (x,y) in freq:
@@ -19,7 +17,7 @@ class Solution:
         
 
         if not freq:
-            return eqFreq[max(eqFreq)]
+            return totalEq
 
         ans = 0
         for (x,y) in freq:
