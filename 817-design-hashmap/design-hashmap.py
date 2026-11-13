@@ -12,6 +12,7 @@ class MyHashMap:
 
     def remove(self, key: int) -> None:
         self.data[key] = None
+     
 
 
 # Your MyHashMap object will be instantiated and called as such:
